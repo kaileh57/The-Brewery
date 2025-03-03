@@ -1,0 +1,27 @@
+{
+  "collector": {
+    "output_dir": "./s1_collected_data",
+    "log_level": "INFO",
+    "resume": true,
+    "max_retries": 5,
+    "backoff_factor": 1.5,
+    "jitter": 0.1,
+    "save_interval": 10
+  },
+  "dataset": {
+    "name": "mlabonne/FineTome-100k",
+    "split": "train",
+    "num_samples": 1000,
+    "seed": 57,
+    "start_index": 0,
+    "filter_by_difficulty": false,
+    "question_field": "question",
+    "fallback_fields": ["prompt", "text", "content", "conversations"]
+  },
+  "prompt": {
+    "template": "Think step-by-step to solve this problem:\n\n{question}",
+    "include_system_prompt": true,
+    "system_prompt": "You are a helpful AI assistant that solves problems by thinking step-by-step. Show your reasoning process clearly and detail each logical step.",
+    "format_instructions": "First, reason through this problem carefully, showing all your work and intermediate steps. Then provide your final answer with 'Final Answer:' at the end."
+  }
+}
